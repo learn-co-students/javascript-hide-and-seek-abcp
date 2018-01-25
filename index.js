@@ -9,15 +9,21 @@ function nestedTarget() {
 function increaseRankBy(n) {
   const rankedListItems = document.querySelectorAll(".ranked-list li");
   var i;
-  console.log(rankedListItems);
-  console.log(n);
   
   for (i = 0; i < rankedListItems.length; i++) {
-    console.log(i);
     var innerNum = parseInt(rankedListItems[i].innerHTML);
-    console.log(innerNum);
     innerNum = innerNum + n;
-    console.log(innerNum);
     rankedListItems[i].innerHTML = innerNum.toString();
   }
+}
+
+function deepestChild() {
+  var i;
+  var current = document.querySelectorAll("#grand-node div");
+  
+  while (current.firstChild) {
+    current = current.firstChild;
+  }
+  
+  return current;
 }
