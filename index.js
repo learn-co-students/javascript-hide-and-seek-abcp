@@ -19,19 +19,14 @@ function increaseRankBy(n) {
 
 function deepestChild() {
 	var i;
-	var current = document.querySelectorAll("#grand-node div");
+	var current = document.getElementById("grand-node");
 	var next;
-
-	for (i = 0; i < current.length; i++) {
-		console.log("Index: " + i);
-		console.log("Current: " + current[i]);
-		
-		if (current[i].children < 1) {
-			return "Returning" + current;
-		} else {
-			console.log(current[i].childNodes);
-			current = current[i].childNodes;
-			console.log("New Current: " + current);
-		}
+	
+	console.log(current);
+	
+	while(current.firstChild) {
+		next = current.firstChild;
+		current = next;
+		console.log(current);
 	}
 }
