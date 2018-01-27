@@ -19,14 +19,29 @@ function increaseRankBy(n) {
 
 function deepestChild() {
 	var i;
-	var current = document.getElementById("grand-node");
-	var next;
+	var current = document.querySelectorAll("#grand-node div");
+	var next = [];
 	
 	console.log(current);
-	
-	while(current.firstChild) {
-		next = current.firstChild;
-		current = next;
-		console.log(current);
+	console.log("Original length: " + current.length);
+
+	for (i = 0; i < current.length; i++) {
+		next.push(current[i]);
 	}
+	
+	console.log(next)
+	console.log(current)
+
+// so now we have an array of all the div nodes under #grand-node
+// we need to remove the top node -- 
+	
+	while (next.length > 0) {
+		console.log("Starting while!")
+		current = next.shift();
+		console.log(current);
+		console.log(next);
+	}
+	
+	console.log("Done with while!")
+	return current;
 }
